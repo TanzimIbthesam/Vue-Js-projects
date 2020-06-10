@@ -5,15 +5,18 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view /> -->
-   <app-blog></app-blog>
+   <!-- <app-blog></app-blog> -->
+   <show-blog></show-blog>
 
   </div>
 </template>
 <script>
-import AddBlog  from   './components/AddBlog.vue';
+// import AddBlog  from   './components/AddBlog.vue';
+import showBlog  from   './components/showBlog.vue';
 export default {
   components:{
-        'app-blog':AddBlog,
+        // 'app-blog':AddBlog,
+        'show-blog':showBlog
 
   }
 }
