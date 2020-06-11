@@ -1,10 +1,11 @@
 <template>
     <div class="flex flex-col justify-center items-center w-full bg-gray-700">
+                    <h1 class="text-2xl bg-white text-black mt-4 px-4 py-1">Blog Titles</h1>
                 <input  type="text" v-model="search" class="border py-2 m-5 w-1/2 border border-gray-300 rounded-lg shadow-xl" placeholder="Search here">
               <div  v-for="blog in  filteredBlogs" v-bind:key="blog"   class="w-11/12 xl:w-1/2   text-black py-10 border border-black rounded-lg mt-5 bg-gray-100">
-              
+                 
                   <h1  class="text-3xl font-bold font-sans" v-rainbow>{{blog.title|touppercase}}</h1>
-                  <p class="text-xl font-medium font-sans" v-rainbow>{{blog.body|snippet}}</p>
+               
                   
               
               </div>
@@ -19,7 +20,7 @@
 </template>
 <script>
 import axios from 'axios';
-import searchMixin from '../mixins/Searchmixins';
+import searchMixin from '../mixins/Searchmixins'
 export default {
     data() {
         return {
@@ -47,7 +48,7 @@ export default {
     computed:{
         // filteredBlogs:function(){
         //     return this.blogs.filter(blog=>{
-        //         return blog.title.match(this.search) || blog.body.match(this.search)  ;
+        //         return blog.title.match(this.search) ;
                
 
         //     });
@@ -69,7 +70,6 @@ export default {
       }
   },
   mixins:[searchMixin]
-
 }
     // mounted:function() {
     //             // const axios = require('axios').default;

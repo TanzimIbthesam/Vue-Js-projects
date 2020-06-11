@@ -1,22 +1,35 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <div id="" class="bg-blue-600 text-white py-5" >
+      <ul class="flex justify-center items-center">
+        <li class="pl-2 text-2xl font-semibold active"><router-link to="/showblog" exact>ShowBlog</router-link></li>
+        
+        <li class="pl-2 text-2xl font-semibold"> <router-link to="/addblog" exact>AddBlog</router-link>
+      </li>
+     
+      </ul>
+      
+      <!-- <router-link to="/showblog">Show Blog</router-link> -->
+     
+
     </div>
-    <router-view /> -->
+    <router-view></router-view>
+ 
    <!-- <app-blog></app-blog> -->
-   <show-blog></show-blog>
+   <!-- <show-blog></show-blog> -->
+   <!-- <blog-title></blog-title> -->
 
   </div>
 </template>
 <script>
 // import AddBlog  from   './components/AddBlog.vue';
-import showBlog  from   './components/showBlog.vue';
+// import showBlog  from   './components/showBlog.vue';
+// import blogTitle  from   './components/blogTitle.vue';
 export default {
   components:{
         // 'app-blog':AddBlog,
-        'show-blog':showBlog
+        // 'show-blog':showBlog,
+        // 'blog-title':blogTitle
 
   }
 }
