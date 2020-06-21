@@ -2,7 +2,7 @@
   <div id="app">
     <div id="" class="bg-blue-600 text-white py-5" >
       <ul class="flex justify-center items-center">
-        <li class="pl-2 text-2xl font-semibold active"><router-link to="/showblog" exact>ShowBlog</router-link></li>
+        <li class="pl-2 text-2xl font-semibold active:bg-indigo-600"><router-link to="/showblog" exact>ShowBlog</router-link></li>
         
         <li class="pl-2 text-2xl font-semibold"> <router-link to="/addblog" exact>AddBlog</router-link>
       </li>

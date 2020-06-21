@@ -5,6 +5,7 @@ import store from "./store";
 import "./assets/tailwind.css";
 import showBlog from "./components/showBlog.vue"
 import AddBlog from "./components/AddBlog.vue"
+import singleBlog from "./components/singleBlog.vue"
 import VueRouter from 'vue-router';
 
 
@@ -21,6 +22,12 @@ const router = new VueRouter({
       path: '/addblog',
       name: 'addblog',
       component: AddBlog
+
+    },
+    {
+      path: '/blog/:id',
+      name: 'singleblog',
+      component: singleBlog
 
     },
   
