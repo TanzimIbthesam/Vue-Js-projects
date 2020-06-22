@@ -1,15 +1,18 @@
 <template>
-    <div class="flex flex-col justify-center items-center w-full bg-gray-700">
+    <div class="flex flex-col justify-center items-center w-full">
         
                 <input  type="text" v-model="search" class="border py-2 m-5 w-1/2 border border-gray-300 rounded-lg shadow-xl" placeholder="Search here">
               <div  v-for="blog in  filteredBlogs" v-bind:key="blog"   class="w-11/12 xl:w-1/2   text-black py-10 border border-black rounded-lg mt-5 bg-gray-100">
-              <router-link v-bind:to="'/blog/'+blog.id" target="_blank">  <h1  class="text-3xl font-bold font-sans" v-rainbow>{{blog.title|touppercase}}</h1></router-link>
+              <!-- <router-link v-bind:to="'/blog/'+blog.id">  <h1  class="text-3xl font-bold font-sans" v-rainbow>{{blog.title}}</h1></router-link> -->
+               <router-link v-bind:to="'/blog/' + blog.id"><h2 class="text-3xl font-bold font-sans">{{ blog.title }}</h2></router-link>
+            <article>{{ blog.description}}</article>
                 
-                  <p class="text-xl font-medium font-sans" v-rainbow>{{blog.body|snippet}}</p>
+             
                   
               
               </div>
-               
+              
+    
               
               
                  
@@ -25,7 +28,9 @@ export default {
     data() {
         return {
            blogs:[],
-           search:''
+           search:'',
+          
+            
 
             }
        
@@ -35,25 +40,46 @@ export default {
     methods:{
    
     },
-  created:function(){
-       axios.get('http://jsonplaceholder.typicode.com/posts/')
-  .then(response=>{
-    // handle success
-    console.log(response);
-   this.blogs=response.data.slice(0,4);
-   
-  })
-        
-    },
+//   created:function(){
+//        axios.get('https://vue-blog-45c59.firebaseio.com/posts.json')
+       
+//   .then(response=>{
+//     // handle success
+//     // console.log(response);
+    
+//     return response.data();
+// //    this.blogs=response.data.slice(0,4);
+
+  
+//   });
+//     },
     computed:{
-        // filteredBlogs:function(){
-        //     return this.blogs.filter(blog=>{
-        //         return blog.title.match(this.search) || blog.body.match(this.search)  ;
+        filteredBlogs:function(){
+            return this.blogs.filter(blog=>{
+                return blog.title.match(this.search) || blog.description.match(this.search)  ;
                
 
-        //     });
-        // }
+            });
+        }
     },
+     mounted () {
+  axios.get('https://vue-blog-45c59.firebaseio.com/posts.json')
+  .then(response=>{
+        console.log(response);
+        const data=response.data;
+        console.log(data);
+        const  blogsArray= [];
+        for (const key in data){
+            data[key].id=key;
+            blogsArray.push(data[key]);
+           
+          }
+           this.blogs = blogsArray;
+          console.log(this.blogs);
+
+
+  });
+  },
     filters:{
 //         'to-uppercase':function(value){
 //   return value.toUpperCase();

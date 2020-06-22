@@ -94,19 +94,8 @@ export default {
     methods:{
     post:function(){
    
- axios.post('http://jsonplaceholder.typicode.com/posts',{
-    headers: {
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods": "GET, POST, PATCH, PUT, DELETE, OPTIONS",
-          "Access-Control-Allow-Headers": "Origin, Content-Type, X-Auth-Token"
-        },
-					title:this.blog.title,
-					body: this.blog.description,
-					userId:1,
-
-
-				}).then(data=>{
-          console.log(data);
+ axios.post('https://vue-blog-45c59.firebaseio.com/posts.json',  this.blog).then(response=>{
+          console.log(response);
           this.submitted=true;
 				});
         
